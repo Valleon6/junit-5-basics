@@ -15,16 +15,25 @@ class MathUtilsTest {
         mathUtils = new MathUtils();
     }
 
-    @Test
-    @DisplayName("Testing add method")
-    void testAdd() {
+    @Nested
+    class addTest {
+        @Test
+        @DisplayName("Testing add method for + ")
+        void testPositiveNumberAdd() {
+            int expected = 2;
+            int actual = mathUtils.add(1, 1);
+            assertEquals(expected, actual, "The add method should add two numbers");
 
-        int expected = 2;
-        int actual = mathUtils.add(1, 1);
+        }
 
-        assertEquals(expected, actual, "The add method should add two numbers");
+        @Test
+        @DisplayName("Testing add method for -")
+        void testNegativeNumberAdd() {
+            assertEquals(-2, mathUtils.add(-1, -1), "The add method should add two numbers");
 
+        }
     }
+
 
     @Test
     void testComputeCircleRadius() {
